@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet type="text/css" href="style.css"?>
+<!DOCTYPE employees [
+  <!ELEMENT employees (employee+)>
+  <!ELEMENT employee (empid, name, department, designation, email, salary)>
+  <!ELEMENT empid (#PCDATA)>
+  <!ELEMENT name (#PCDATA)>
+  <!ELEMENT department (#PCDATA)>
+  <!ELEMENT designation (#PCDATA)>
+  <!ELEMENT email (#PCDATA)>
+  <!ELEMENT salary (#PCDATA)>
+]>
+<employees>
+
+  <employee>
+    <empid>EMP001</empid>
+    <name>Rohan Sharma</name>
+    <department>Design</department>
+    <designation>UI/UX Designer</designation>
+    <email>rsharma565@gmail.com</email>
+    <salary>₹90000</salary>
+  </employee>
+
+  <employee>
+    <empid>EMP002</empid>
+    <name>Shruti Niwal</name>
+    <department>Marketing</department>
+    <designation>Marketing Manager</designation>
+    <email>ShrutiNiwal23@gmail.com</email>
+    <salary>₹85000</salary>
+  </employee>
+
+  <employee>
+    <empid>EMP003</empid>
+    <name>Ayush Dahule</name>
+    <department>Human Resources</department>
+    <designation>HR Specialist</designation>
+    <email>ayush@gmail.com</email>
+    <salary>₹60000</salary>
+  </employee>
+
+  <employee>
+    <empid>EMP004</empid>
+    <name>Hitesh Dahule</name>
+    <department>Sales</department>
+    <designation>Sales Representative</designation>
+    <email>hitesh246@gmail.com</email>
+    <salary>₹70000</salary>
+  </employee>
+
+  <employee>
+    <empid>EMP005</empid>
+    <name>Archana Tiwari</name>
+    <department>Engineering</department>
+    <designation>Software engineer</designation>
+    <email>Archana@gamil.com</email>
+    <salary>₹92000</salary>
+  </employee>
+
+  <employee>
+    <empid>EMP006</empid>
+    <name>Ravindra Sing</name>
+    <department>Finance</department>
+    <designation>Financial Analyst</designation>
+    <email>rd.sing454@gmail.com</email>
+    <salary>₹88000</salary>
+  </employee>
+  
+</employees>
