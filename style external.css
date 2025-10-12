@@ -1,0 +1,81 @@
+
+employees {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #ffb3b3, #97fff8);
+    
+}
+
+employee {
+    display: flex;
+    flex-direction: column;
+   background-color: rgb(255, 253, 253);
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 2);
+    padding: 30px;
+}
+
+
+empid, name, department, designation, salary {
+    display: block;
+    margin-bottom: 8px;
+
+}
+
+email {
+    color: #00790c;
+}
+
+name {
+    font-weight: 700;
+    font-size:200%;
+    color: #014c7e;
+    border-bottom: 3px solid #014c7e;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+empid {
+    font-size: 90%;
+    color: #7f8c8d;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+department, designation, email, salary {
+    font-size: 100%;
+}
+
+department:before, designation:before, email:before {
+    content: attr(class) ": ";
+    font-weight: 600;
+    color: #0c86ffd6;
+}
+
+department:before {
+    content: "Department: ";
+}
+
+designation:before {
+    content: "Designation: ";
+}
+
+email:before {
+    content: "Email: ";
+}
+
+salary:before {
+    content: "Salary: ";
+    font-weight: 600;
+    color: #0c86ffd6;
+}
+
+salary {
+    color: #ff4c4c;
+    font-weight: bold;
+    font-size: 100%;
+}

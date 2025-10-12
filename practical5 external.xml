@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE employees SYSTEM "employees.dtd">
+<?xml-stylesheet type="text/css" href="style.css"?>
+
+<employees>
+
+   <employee>
+    <empid>EMP001</empid>
+    <name>Rohan Sharma</name>
+    <department>Design</department>
+    <designation>UI/UX Designer</designation>
+    <email>rsharma565@gmail.com</email>
+    <salary>₹90000</salary>
+  </employee>
+
+  <employee>
+    <empid>EMP002</empid>
+    <name>Shruti Hulke</name>
+    <department>Marketing</department>
+    <designation>Marketing Manager</designation>
+    <email>ShrutiHulke23@gmail.com</email>
+    <salary>₹85000</salary>
+  </employee>
+
+  <employee>
+    <empid>EMP003</empid>
+    <name>Ayush Dahule</name>
+    <department>Human Resources</department>
+    <designation>HR Specialist</designation>
+    <email>ayush@gmail.com</email>
+    <salary>₹60000</salary>
+  </employee>
+
+  <employee>
+    <empid>EMP004</empid>
+    <name>Tanvi Nival</name>
+    <department>Sales</department>
+    <designation>Sales Representative</designation>
+    <email>tanvi246@gmail.com</email>
+    <salary>₹70000</salary>
+  </employee>
+
+  <employee>
+    <empid>EMP005</empid>
+    <name>Archana Tiwari</name>
+    <department>Engineering</department>
+    <designation>Software engineer</designation>
+    <email>Archana@gamil.com</email>
+    <salary>₹92000</salary>
+  </employee>
+
+  <employee>
+    <empid>EMP006</empid>
+    <name>Ravindra Sing</name>
+    <department>Finance</department>
+    <designation>Financial Analyst</designation>
+    <email>rd.Sing454@gmail.com</email>
+    <salary>₹88000</salary>
+  </employee>
+</employees>
