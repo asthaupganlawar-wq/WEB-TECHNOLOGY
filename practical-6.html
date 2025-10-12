@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CD Catalog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+background: linear-gradient(45deg, #3d5a80ff,#98c1d9ff,#e0fbfcff,#ee6c4dff,#293241ff);
+      text-align: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    button {
+      background: #ff6b6b;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #e63946;
+      transform: scale(1.05);
+    }
+    #cd-list {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .cd-card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+  
+    .cd-card strong {
+      color: #ff6b6b;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CD Catalog</h1>
+  <button onclick="loadCDs()">Load CD Catalog</button>
+
+  <div id="cd-list"></div>
+
+  <script>
+    function loadCDs() {
+      fetch("cd_catalog.xml")
+        .then(response => {
+          if (!response.ok) throw new Error("XML file not found!");
+          return response.text();
+        })
+        .then(str => {
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(str, "application/xml");
+
+          const cds = xmlDoc.getElementsByTagName("cd");
+          let output = "";
+
+          for (let i = 0; i < cds.length; i++) {
+            const title = cds[i].getElementsByTagName("title")[0].textContent;
+            const artist = cds[i].getElementsByTagName("artist")[0].textContent;
+            const country = cds[i].getElementsByTagName("country")[0].textContent;
+            const company = cds[i].getElementsByTagName("company")[0].textContent;
+            const price = cds[i].getElementsByTagName("price")[0].textContent;
+            const year = cds[i].getElementsByTagName("year")[0].textContent;
+
+            output += `
+              <div class="cd-card">
+                <p><strong>Title:</strong> ${title}</p>
+                <p><strong>Artist:</strong> ${artist}</p>
+                <p><strong>Country:</strong> ${country}</p>
+                <p><strong>Company:</strong> ${company}</p>
+                <p><strong>Price:</strong> $${price}</p>
+                <p><strong>Year:</strong> ${year}</p>
+              </div>
+            `;
+          }
+
+          document.getElementById("cd-list").innerHTML = output;
+        })
+        .catch(err => {
+          console.error("Error:", err);
+          alert("Failed to load XML file. Please run this on a server (not by double-clicking).");
+        });
+    }
+  </script>
+
+</body>
+</html>
