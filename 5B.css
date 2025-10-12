@@ -1,0 +1,58 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(90deg,#FCC2CC,#BCECFF,#92BDD7,#F9E9B0);
+  margin: 0;
+  padding: 20px;
+  color: #333;
+  text-align: center;
+}
+
+h1 {
+  color: #222;
+  text-shadow: 2px 2px #fff;
+}
+
+button {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  margin: 20px 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,1);
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+button:hover {
+  background: #357abd;
+  transform: scale(1.05);
+}
+
+#second-employee-info {
+  margin: 20px auto;
+  padding: 20px;
+  width: 320px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#second-employee-info.show {
+  opacity: 1;
+
+}
+
+#second-employee-info p {
+  text-align: left;
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+#second-employee-info strong {
+  color: #4a90e2;
+}

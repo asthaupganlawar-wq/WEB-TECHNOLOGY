@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Information</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Employee Information</h1>
+  <button onclick="getSecondEmployee()">Get Second Employee's Info</button>
+  
+  <h2>Second Employee's Data:</h2>
+  <div id="second-employee-info"></div>
+
+  <script>
+    function loadXML() {
+      return fetch('data.xml') 
+        .then(response => {
+          if (!response.ok) throw new Error(`Fetch failed: ${response.status} ${response.statusText}`);
+          const ct = response.headers.get('content-type') || '';
+          if (!ct.includes('xml') && !ct.includes('text')) console.warn('Unusual Content-Type:', ct);
+          return response.text();
+        })
+        .then(str => {
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(str, "application/xml");
+          const parserErrors = xmlDoc.getElementsByTagName("parsererror");
+          if (parserErrors.length) throw new Error("XML parse error: " + parserErrors[0].textContent.trim());
+          return xmlDoc;
+        });
+    }
+
+    function getSecondEmployee() {
+      loadXML().then(xmlDoc => {
+        const employees = xmlDoc.getElementsByTagName("employee");
+
+        if (employees.length >= 2) {
+          const secondEmployee = employees[1]; 
+
+          const id = secondEmployee.getAttribute("id");
+          const name = secondEmployee.getElementsByTagName("name")[0].textContent;
+          const department = secondEmployee.getElementsByTagName("department")[0].textContent;
+          const designation = secondEmployee.getElementsByTagName("designation")[0].textContent;
+          const email = secondEmployee.getElementsByTagName("email")[0].textContent;
+          const salary = secondEmployee.getElementsByTagName("salary")[0].textContent;
+
+          const container = document.getElementById("second-employee-info");
+          container.innerHTML = `
+            <p><strong>ID:</strong> ${id}</p>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Department:</strong> ${department}</p>
+            <p><strong>Designation:</strong> ${designation}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Salary:</strong> ₹${salary}</p>
+          `;
+          container.classList.add("show");
+        } else {
+          alert("There are less than 2 employees in the data.");
+        }
+      }).catch(err => {
+        console.error("Error loading XML file:", err);
+        alert("Error: " + err.message);
+      });
+    }
+  </script>
+
+</body>
+</html>

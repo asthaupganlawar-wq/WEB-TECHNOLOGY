@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+    <employee id="101">
+        <name>Tanvi niwal</name>
+        <department>IT</department>
+        <designation>Developer</designation>
+        <email>tanvi@gmail.com</email>
+        <salary>50000</salary>
+    </employee>
+
+    <employee id="102">
+        <name>Rohan Sharma</name>
+        <department>UI/UX developer</department>
+        <designation>Frontend manager</designation>
+        <email>rsharma@gmail</email>
+        <salary>90000</salary>
+    </employee>
+
+    <employee id="103">
+        <name>Shruti Nival</name>
+        <department>Finance</department>
+        <designation>Accountant</designation>
+        <email>shruti@gmail.com</email>
+        <salary>45000</salary>
+    </employee>
+</employees>
