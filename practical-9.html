@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admission Registration Form</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5, #fbc2eb);
+      background-size: 200% 200%;
+      animation: gradientMove 8s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    @keyframes gradientMove {
+      0% { background-position: left; }
+      100% { background-position: right; }
+    }
+    .container {
+      position: relative;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      padding: 40px 35px;
+      width: 400px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      overflow: hidden;
+      transition: 0.5s;
+    }
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(
+        from 0deg,
+        #f8e403,
+        #e59e05,
+        #dc8707,
+        #ec6d06
+      );
+      animation: spin 5s linear infinite;
+      z-index: 0;
+      filter: blur(40px);
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .form-content {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: inset 0 0 20px rgba(255,255,255,0.4);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 25px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: 600;
+      color: #444;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 14px;
+      outline: none;
+      transition: 0.3s;
+      background-color: #fafafa;
+    }
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    input[type="password"]:focus {
+      border-color: #6a11cb;
+      box-shadow: 0 0 10px rgba(106, 17, 203, 0.3);
+      background: #fff;
+    }
+    input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 25px;
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.4s;
+      letter-spacing: 1px;
+    }
+    input[type="submit"]:hover {
+      background: linear-gradient(90deg, #2575fc, #6a11cb);
+      box-shadow: 0px 5px 20px rgba(106, 17, 203, 0.5);
+      transform: translateY(-3px);
+    }
+    .note {
+      text-align: center;
+      font-size: 13px;
+      color: #555;
+      margin-top: 15px;
+      font-style: italic;
+    }
+  </style>
+  <script>
+    function validateForm() {
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let phone = document.getElementById("phone").value.trim();
+      let age = document.getElementById("age").value.trim();
+      let password = document.getElementById("password").value.trim();
+      if (name === "") {
+        alert("Please enter your name.");
+        return false;
+      }
+      let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+      if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+      let phonePattern = /^[0-9]{10}$/;
+      if (!phonePattern.test(phone)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return false;
+      }
+      if (age === "" || isNaN(age) || age < 17 || age > 30) {
+        alert("Please enter a valid age between 17 and 30.");
+        return false;
+      }
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+      }
+      alert("🎉 Registration Successful!🎉\n🎉Thank you for registering!🎉");
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="form-content">
+      <h2>Admission Registration Form</h2>
+      <form onsubmit="return validateForm()">
+        <label>Full Name:</label>
+        <input type="text" id="name" placeholder="Enter your full name">
+        <label>Email Address:</label>
+        <input type="text" id="email" placeholder="example@gmail.com">
+        <label>Phone Number:</label>
+        <input type="text" id="phone" placeholder="Enter 10-digit number">
+        <label>Age:</label>
+        <input type="number" id="age" placeholder="Enter your age">
+        <label>Password:</label>
+        <input type="password" id="password" placeholder="Create a strong password">
+        <input type="submit" value="Register">
+      </form>
+      <p class="note">✨ All fields are mandatory ✨</p>
+    </div>
+  </div>
+</body>
+</html>
